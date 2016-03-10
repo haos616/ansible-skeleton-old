@@ -1,0 +1,12 @@
+- apt: name={{ item }}
+  with_items:
+    - git
+    - binutils
+    - make
+    - gcc
+    - g++
+    - openssl
+    - libssl-dev
+
+- apt: name={{ item }}
+  with_items: {{ django_apt_packages }}

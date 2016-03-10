@@ -1,0 +1,16 @@
+- shell: "{{ ramona_command }} stop"
+  register: result
+  args:
+    chdir: "{{ project_src }}"
+    executable: /bin/bash
+
+- debug: var=result.stdout_lines
+
+
+- shell: "{{ ramona_command }} start"
+  register: result
+  args:
+    chdir: "{{ project_src }}"
+    executable: /bin/bash
+
+- debug: var=result.stdout_lines

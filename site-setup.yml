@@ -1,0 +1,13 @@
+---
+- hosts: all
+  remote_user: root
+  gather_facts: yes
+  roles:
+    - {role: user, task: setup}
+    - {role: ruby, task: setup}
+    - {role: nodejs, task: setup}
+    - {role: postgresql, task: setup}
+    - {role: postgresql, task: create}
+    - {role: redis, task: setup}
+    - {role: nginx, task: setup}
+    - {role: django, task: setup}

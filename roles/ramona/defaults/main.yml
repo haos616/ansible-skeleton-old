@@ -1,0 +1,1 @@
+ramona_command: "source {{ virtualenv_activate }} && ../script.py -c {{ project_dir }}/conf/{{ project_state }}/ramona.conf"

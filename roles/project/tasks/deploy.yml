@@ -1,0 +1,2 @@
+- name: Clone git repo
+  git: repo="{{ project_repo }}" dest="{{ project_dir }}" version="{{ git_version }}" accept_hostkey=yes force=yes

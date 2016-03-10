@@ -1,0 +1,4 @@
+- name: Backup postgresql db {{ postgresql_db }}
+  shell: pg_dump -T 'topology.*' --no-acl --no-owner -Fc "{{ postgresql_db }}" > "{{ postgresql_backup_name }}"
+  args:
+    chdir: "{{ backups_dir_now }}"

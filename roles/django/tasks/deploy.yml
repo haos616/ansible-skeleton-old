@@ -1,0 +1,24 @@
+- name: Install Ansible
+  pip: name=ansible virtualenv="{{ virtualenv_dir }}"
+
+- name: Install pip requirements.txt
+  pip: requirements="{{ project_state }}".txt virtualenv="{{ virtualenv_dir }}" chdir="{{ django_requirements_dir }}"
+
+#- django_manage:
+#    command=syncdb
+#    app_path="{{ project_src }}"
+#    virtualenv="{{ virtualenv_dir }}"
+#    settings="{{ project_setting }}"
+
+- django_manage:
+    command=migrate
+    app_path="{{ project_src }}"
+    virtualenv="{{ virtualenv_dir }}"
+    settings="{{ django_setting }}"
+
+- django_manage:
+    command=collectstatic
+    app_path="{{ project_src }}"
+    virtualenv="{{ virtualenv_dir }}"
+    settings="{{ django_setting }}"
+

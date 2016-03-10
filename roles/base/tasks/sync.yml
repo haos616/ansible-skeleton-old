@@ -1,0 +1,1 @@
+#- synchronize: mode=pull recursive=yes archive=no src='{{ backups_dir }}/{{ sync_dir }}' dest=path/to/dir

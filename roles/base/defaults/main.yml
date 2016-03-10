@@ -1,0 +1,12 @@
+backups_dir: "{{ virtualenv_dir }}/backups"
+backups_dir_date: "{{ backups_dir }}/{{ date.stdout_lines.0 }}"
+backups_dir_now: "{{ backups_dir_date }}/{{ time.stdout_lines.0 }}"
+
+user: default
+
+virtualenv_dir: "/home/{{ user }}/{{ user }}"
+project_dir: "{{ virtualenv_dir }}/{{ user }}"
+project_public: "{{ project_dir }}/public"
+
+password_length: '33'
+password_dir: '../../../passwords/'

@@ -1,0 +1,16 @@
+- name: Current time
+  command: date +%H:%M:%S
+  register: time
+
+- name: Current time
+  command: date +%Y-%m-%d
+  register: date
+
+- name: Creates directory "{{ backups_dir }}"
+  file: path="{{ backups_dir }}" owner="{{ user }}" group="{{ user }}" state=directory
+
+- name: Creates directory "{{ backups_dir_date }}"
+  file: path="{{ backups_dir_date }}" owner="{{ user }}" group="{{ user }}" state=directory
+
+- name: Creates directory "{{ backups_dir_now }}"
+  file: path="{{ backups_dir_now }}" owner="{{ user }}" group="{{ user }}" state=directory

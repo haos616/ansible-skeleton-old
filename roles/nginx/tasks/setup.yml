@@ -1,0 +1,14 @@
+- name: Add repo key nginx
+  apt_key: url="{{ nginx_repo_key }}"
+
+- name: Add deb repo nginx
+  apt_repository: repo="{{ nginx_repo_deb }}"
+
+- name: Add deb-src repo nginx
+  apt_repository: repo="{{ nginx_repo_deb_src }}"
+
+- name: Install nginx
+  apt: name=nginx
+
+- name: Create link for nginx config
+  file: src={{ nginx_config_file }} dest=/etc/nginx/conf.d/{{ nginx_site_name }}.conf state=link force=yes

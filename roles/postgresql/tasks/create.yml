@@ -1,0 +1,24 @@
+- name: Create postgresql user {{ postgresql_user }}
+  postgresql_user: name="{{ postgresql_user }}" password="{{ postgresql_password }}"
+  become: True
+  become_user: postgres
+
+- name: Create postgresql db {{ postgresql_db }}
+  postgresql_db: name="{{ postgresql_db }}" owner="{{ postgresql_user }}" encoding='UTF-8'
+  become: True
+  become_user: postgres
+
+- name: Added postgis for {{ postgresql_db }}
+  postgresql_ext: name=postgis db={{ postgresql_db }}
+  become: True
+  become_user: postgres
+  when: postgis
+
+- postgresql_ext: name=postgis_topology db={{ postgresql_db }}
+  become: True
+  become_user: postgres
+  when: postgis
+
+- postgresql_ext: name=plpgsql db={{ postgresql_db }}
+  become: True
+  become_user: postgres

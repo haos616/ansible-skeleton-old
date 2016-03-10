@@ -1,0 +1,2 @@
+redis_flush_mode: all
+redis_db: 0

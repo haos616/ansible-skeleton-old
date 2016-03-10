@@ -1,0 +1,12 @@
+---
+- hosts: all
+  remote_user: '{{ user }}'
+  gather_facts: yes
+
+  vars_prompt:
+    - name: "sync_dir"
+      prompt: "What is backups dir sync?"
+      private: no
+
+  roles:
+    - {role: base, task: sync}

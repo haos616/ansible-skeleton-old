@@ -1,0 +1,5 @@
+{
+{% for item in frontend_local_dict %}
+    "{{ item.key }}": "{{ item.value }}",
+{% endfor %}
+}

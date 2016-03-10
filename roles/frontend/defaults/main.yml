@@ -1,0 +1,6 @@
+frontend_dir: "{{ project_dir + '/frontend' }}"
+frontend_package_update: true
+
+frontend_local_dict:
+  - { key: GOOGLE_TAG_MANAGER_ID, value: "{{ google_tag_manager_id }}" }
+

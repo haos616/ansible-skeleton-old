@@ -1,0 +1,28 @@
+- apt: update_cache=yes cache_valid_time=3600
+
+- name: Install sudo
+  apt: name=sudo
+
+- name: Install htop
+  apt: name=htop
+
+- locale_gen: name="{{ postgresql_locale }}" state=present
+
+- name: install psycopg2
+  apt: name=python-psycopg2
+
+- name: Add repo key postgresql
+  apt_key: url="{{ postgresql_repo_key }}"
+
+- name: Add deb repo postgresql
+  apt_repository: repo="{{ postgresql_repo_deb }}"
+
+- name: Install postgresql 9.4
+  apt: name=postgresql-9.4
+
+- name: install postgis 9.4
+  apt: name=postgresql-9.4-postgis-2.1
+  when: postgis
+
+- name: install libpq-dev
+  apt: name=libpq-dev

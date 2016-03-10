@@ -1,0 +1,9 @@
+nginx_repo_key: 'http://nginx.org/keys/nginx_signing.key'
+nginx_repo_deb: 'deb http://nginx.org/packages/{{ ansible_distribution }}/ {{ ansible_distribution_release }} nginx'
+nginx_repo_deb_src: 'deb-src http://nginx.org/packages/{{ ansible_distribution }}/ {{ ansible_distribution_release }} nginx'
+
+nginx_server_name: localhost
+nginx_listen: 80
+
+nginx_config_file: '{{ project_dir }}/conf/nginx.conf'
+nginx_site_name: '{{ user }}'

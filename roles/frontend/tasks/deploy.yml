@@ -1,0 +1,14 @@
+- name: Install npm package.json
+  npm: path={{ frontend_dir }} state=latest
+  when: frontend_package_update
+
+- name: Generate local.json
+  template: src=local.json.j2 dest="{{ frontend_dir }}/local.json"
+
+- name: Generate frontend static
+  command: gulp prod
+  register: result
+  args:
+    chdir: "{{ frontend_dir }}"
+
+- debug: var=result.stdout_lines

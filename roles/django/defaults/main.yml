@@ -1,0 +1,16 @@
+django_requirements_dir: "{{ project_dir }}/requirements"
+
+django_apt_packages:
+  - python-pip
+  - python-dev
+  - libpython-dev
+  - python-virtualenv
+  - libpq-dev
+  - libzmq-dev
+  - libxml2-dev
+  - libxslt-dev
+  - libcurl4-openssl-dev
+  - libjpeg-dev
+  - zlib1g-dev
+  - libpng12-dev
+  - libev-dev

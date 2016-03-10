@@ -1,0 +1,12 @@
+---
+- hosts: all
+  remote_user: '{{ user }}'
+  gather_facts: yes
+  roles:
+    - {role: base, task: init}
+    - {role: project, task: deploy}
+    - {role: frontend, task: deploy}
+    - {role: django, task: deploy}
+    - {role: django, task: loaddata, fixtures_name: socialaccount_socialapp_dev}
+    - {role: ramona, task: restart}
+    - {role: redis, task: flush, redis_db: 1, redis_flush_mode: db}

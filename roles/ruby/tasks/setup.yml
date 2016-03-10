@@ -1,0 +1,11 @@
+- name: install Ruby
+  apt: name=ruby-full
+
+- gem: name=rubygems-update
+  when: rubygems-update
+
+- gem: name=sass
+  when: sass
+
+- gem: name=compass
+  when: compass

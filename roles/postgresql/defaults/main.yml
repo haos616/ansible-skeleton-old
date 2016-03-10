@@ -1,0 +1,13 @@
+postgresql_user: default
+postgresql_db: default_db
+
+postgresql_locale: 'ru_RU.UTF-8'
+postgresql_repo_key: 'https://www.postgresql.org/media/keys/ACCC4CF8.asc'
+postgresql_repo_deb: 'deb http://apt.postgresql.org/pub/repos/apt/ {{ ansible_distribution_release }}-pgdg main'
+
+postgresql_backup_name: "{{ project_state }}.{{postgresql_db }}.psql.dump"
+
+postgis: no
+
+postgresql_password_dir: '{{ password_dir }}{{ project_state }}/postgreqsql/{{ postgresql_user }}'
+postgresql_password: "{{lookup('password', postgresql_password_dir + ' length=' + password_length )}}"

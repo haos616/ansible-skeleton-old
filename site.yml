@@ -1,0 +1,9 @@
+---
+- include: site-setup.yml
+  tags: [setup]
+
+- include: site-backup.yml
+  tags: [deploy, backup]
+
+#- include: site-deploy.yml
+#  tags: [deploy, setup]

@@ -1,0 +1,4 @@
+- name: Remove db {{ postgresql_db }}
+  postgresql_db: name="{{ postgresql_db }}" owner="{{ postgresql_user }}" state=absent
+  become: True
+  become_user: postgres
